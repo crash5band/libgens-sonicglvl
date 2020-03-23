@@ -859,6 +859,14 @@ bool EditorApplication::keyPressed(const OIS::KeyEvent &arg) {
 			{
 				editor_application->saveLevelDataGUI();
 			}
+			if (arg.key == OIS::KC_R)
+			{
+				if (editor_mode == EDITOR_NODE_QUERY_OBJECT || EDITOR_NODE_QUERY_GHOST)
+				{
+					toggleRotationSnap();
+					updateSelection();
+				}
+			}
 		}
 		else if (keyboard->isModifierDown(OIS::Keyboard::Alt))
 		{
@@ -876,7 +884,7 @@ bool EditorApplication::keyPressed(const OIS::KeyEvent &arg) {
 					updateSelection();
 				}
 			}
-		}
+}
 	}
 
 	// Global Mode Shortcuts
